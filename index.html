@@ -482,6 +482,62 @@
     padding-left: 60px;
     padding-right: 60px;
 }
+.gallery-main {
+    width: 100vw;
+    margin: 0;
+    padding: 60px 0;
+    background: #fff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    width: 100%;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    
+}
+
+.gallery-item:hover::before {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.gallery-item span {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
             .logos-grid {
                 grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
                 gap: 20px;
@@ -508,6 +564,7 @@
                 padding: 40px 30px;
             }
         }
+        
     </style>
 </head>
 <body>
@@ -616,26 +673,29 @@
                 </div>
             </div>
         </section>
-        <section class="gallery-main">
-    <div class="gallery-item" onclick="showDetail(1)" style="background-image: url('images/peared-cover.jpg');">
-    <span>Peared</span>
-</div>
-<div class="gallery-item" onclick="showDetail(2)" style="background-image: url('images/research-cover.jpg');">
-    <span>Research Lab</span>
-</div>
-<div class="gallery-item" onclick="showDetail(3)" style="background-image: url('images/award-cover.jpg');">
-    <span>Award Ceremony</span>
-</div>
-<div class="gallery-item" onclick="showDetail(4)" style="background-image: url('images/team-cover.jpg');">
-    <span>Team Collaboration</span>
-</div>
-<div class="gallery-item" onclick="showDetail(5)" style="background-image: url('images/field-cover.jpg');">
-    <span>Field Work</span>
-</div>
-<div class="gallery-item" onclick="showDetail(6)" style="background-image: url('images/speaking-cover.jpg');">
-    <span>Speaking Engagement</span>
-</div>
+<section class="gallery-main">
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="showDetail(1)" style="background-image: url('images/peared-cover.jpg');">
+            <span>Peared</span>
+        </div>
+        <div class="gallery-item" onclick="showDetail(2)" style="background-image: url('images/research-cover.jpg');">
+            <span>Research Lab</span>
+        </div>
+        <div class="gallery-item" onclick="showDetail(3)" style="background-image: url('images/award-cover.jpg');">
+            <span>Award Ceremony</span>
+        </div>
+        <div class="gallery-item" onclick="showDetail(4)" style="background-image: url('images/team-cover.jpg');">
+            <span>Team Collaboration</span>
+        </div>
+        <div class="gallery-item" onclick="showDetail(5)" style="background-image: url('images/field-cover.jpg');">
+            <span>Field Work</span>
+        </div>
+        <div class="gallery-item" onclick="showDetail(6)" style="background-image: url('images/speaking-cover.jpg');">
+            <span>Speaking Engagement</span>
+        </div>
+    </div>
 </section>
+  
         <!-- Recognition Section -->
         <section class="recognition">
             <div class="container">
