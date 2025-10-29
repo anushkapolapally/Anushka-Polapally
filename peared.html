@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Peared — Gallery</title>
+    <meta name="description" content="A clean gallery page for Peared showcasing images in a responsive grid that fills the remaining page space. Testing the gallery stretch blah A clean gallery page for Peared showcasing images in a responsive grid that fills the remaining page space. Testing the gallery stretch blah A clean gallery page for Peared showcasing images in a responsive grid that fills the remaining page space. Testing the gallery stretch blah A clean gallery page for Peared showcasing images in a responsive grid that fills the remaining page space. Testing the gallery stretch blah A clean gallery page for Peared showcasing images in a responsive grid that fills the remaining page space. Testing the gallery stretch blah A clean gallery page for Peared showcasing images in a responsive grid that fills the remaining page space. Testing the gallery stretch blah A clean gallery page for Peared showcasing images in a responsive grid that fills the remaining page space. Testing the gallery stretch blah " />
+
+    <!-- If your index.html defines a custom font via a CSS variable --site-font,
+             this page will use it. Otherwise it falls back to system fonts. -->
+            <style>
+            /* Reserve a right column and float the description into it */
+            header { padding-right: 360px; position: relative; }
+            main { padding-right: 360px; }
+
+            /* Visual container for the description sitting on the right */
+            .description {
+                position: fixed;
+                top: 28px;
+                right: 18px;
+                width: 320px;
+                max-height: calc(100vh - 56px);
+                overflow: auto;
+                box-sizing: border-box;
+                padding: 18px;
+                background: #fff;
+                border: 1px solid rgba(0,0,0,0.06);
+                border-radius: 10px;
+                box-shadow: 0 8px 28px rgba(20,20,20,0.06);
+                z-index: 20;
+            }
+
+            /* Let the gallery occupy the left area and extend to the bottom */
+            .gallery {
+                align-content: start;
+                min-height: 0;
+                /* reduce vertical shrink so grid can scroll inside main */
+                height: calc(100vh - 88px);
+                overflow: auto;
+            }
+
+            /* Tweak spacing on small screens: stack description back into flow */
+            @media (max-width: 820px) {
+                header, main { padding-right: 18px; }
+                .description {
+                    position: static;
+                    width: auto;
+                    max-height: none;
+                    box-shadow: none;
+                    border: none;
+                    padding: 0;
+                    background: transparent;
+                    margin-top: 8px;
+                }
+                .gallery { height: auto; }
+            }
+
+            /* Preserve earlier fallback font variable if present */
+            :root {
+                --fallback-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            }
+            </style>
+    <style>
+        :root {
+            /* If index.html provides --site-font, that will be used automatically. */
+            --fallback-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: var(--site-font, var(--fallback-font));
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            background: #fff;
+            color: #111;
+        }
+
+        .app {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 28px 32px;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.9));
+            z-index: 1;
+            flex: 0 0 auto;
+        }
+
+        header h1 {
+            margin: 0 0 6px 0;
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        header p.description {
+            margin: 0;
+            color: #555;
+            font-size: 0.95rem;
+            max-width: 70ch;
+        }
+
+        main {
+            /* this is the area that should fill the remaining space */
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            padding: 18px;
+            gap: 12px;
+            min-height: 0; /* allow children to scroll when needed */
+        }
+
+        .gallery {
+            /* expand to fill all available space inside main */
+            flex: 1 1 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+            align-content: start;
+            overflow: auto;
+            padding: 6px;
+        }
+
+        .tile {
+            display: block;
+            background: #f7f7f8;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .tile img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tile figcaption {
+            padding: 10px 12px;
+            font-size: 0.92rem;
+            color: #222;
+            background: #fff;
+        }
+
+        .tile:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 24px rgba(20,20,20,0.08);
+        }
+
+        /* small screens */
+        @media (max-width: 520px) {
+            header { padding: 18px; }
+            header h1 { font-size: 1.25rem; }
+            .tile img { height: 140px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>Peared</h1>
+            <p class="description">An image gallery that stretches to fill every bit of remaining space on the page. Resize the window or add images and the grid will adapt to fit.</p>
+        </header>
+
+        <main>
+            <section class="gallery" aria-label="Peared image gallery">
+                <!-- Example tiles; replace src with your own images -->
+                <figure class="tile"><img src="https://picsum.photos/id/1015/800/600" alt="Image 1"><figcaption>Mountain ridge</figcaption></figure>
+                <figure class="tile"><img src="https://picsum.photos/id/1025/800/600" alt="Image 2"><figcaption>Husky portrait</figcaption></figure>
+                <figure class="tile"><img src="https://picsum.photos/id/1035/800/600" alt="Image 3"><figcaption>Coastal cliffs</figcaption></figure>
+                <figure class="tile"><img src="https://picsum.photos/id/1043/800/600" alt="Image 4"><figcaption>City skyline</figcaption></figure>
+                <figure class="tile"><img src="https://picsum.photos/id/1052/800/600" alt="Image 5"><figcaption>Forest path</figcaption></figure>
+                <figure class="tile"><img src="https://picsum.photos/id/1062/800/600" alt="Image 6"><figcaption>Desert dunes</figcaption></figure>
+                <figure class="tile"><img src="https://picsum.photos/id/1074/800/600" alt="Image 7"><figcaption>Lake at dusk</figcaption></figure>
+                <figure class="tile"><img src="https://picsum.photos/id/1081/800/600" alt="Image 8"><figcaption>Architectural detail</figcaption></figure>
+                <!-- Add or remove tiles as needed -->
+            </section>
+        </main>
+    </div>
+</body>
+</html>
