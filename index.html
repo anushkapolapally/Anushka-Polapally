@@ -52,56 +52,7 @@
             line-height: 1.8;
         }
 
-        /* Header */
-        /* Header */
-.header {
-    padding: 40px 60px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-        .header h1 {
-    font-size: 2rem;
-    font-weight: 400;
-    color: #000000;
-    margin: 0;
-}
-
-.header h1 a {
-    color: #333;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.header h1 a:hover {
-    color: #1E90FF;
-}
-
-.header-icons {
-    display: flex;
-    gap: 20px;
-}
-.header-icons a {
-    color: #000; /* sets text & icon color */
-}
-
-.header-icons a:hover {
-    color: #1E90FF; /* optional: only turns blue when hovered */
-}
-
-        .gallery-grid {
-            padding-top: 10px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-bottom: 10px;
-        }
-
+ 
         .gallery-item {
     position: relative;
     overflow: hidden;
@@ -565,6 +516,106 @@
             }
         }
         
+.header {
+  padding: 25px 60px 15px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* top row: left = name, right = icons */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-left h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.header-left a {
+  color: #333;
+  text-decoration: none;
+}
+
+.header-left a:hover {
+  color: #1E90FF;
+}
+
+.header-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 1.3rem;
+}
+
+.header-icons a {
+  color: #000;
+  text-decoration: none;
+}
+
+.header-icons a:hover {
+  color: #1E90FF;
+}
+
+/* centered nav row */
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-bar ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-bar a:hover {
+  color: #1E90FF;
+  border-color: #1E90FF;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .header {
+    padding: 20px 30px;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-bar ul {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .nav-bar a {
+    font-size: 1rem;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -573,26 +624,48 @@
         <!-- Hero Section -->
      <!-- Header -->
 <header class="header">
-    <h1><a href="#" onclick="showHome(); return false;">Anushka Polapally</a></h1>
-    <div class="header-icons">
+  <div class="header-top">
+    <div class="header-left">
+      <h1><a href="#" onclick="showHome(); return false;">Anushka Polapally</a></h1>
+    </div>
+
+    <div class="header-right">
+      <div class="header-icons">
         <a href="mailto:polapallyanushka@gmail.com" title="Email">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
         </a>
         <a href="https://www.linkedin.com/in/anushka-polapally/" target="_blank" title="LinkedIn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
         </a>
         <a href="https://github.com/anushkapolapally" target="_blank" title="GitHub">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+          </svg>
         </a>
+      </div>
     </div>
+  </div>
+
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="peared.html">Peared</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="innovations.html">Innovations</a></li>
+      <li><a href="math.html">Math</a></li>
+      <li><a href="misc.html">Miscellaneous</a></li>
+    </ul>
+  </nav>
 </header>
+
+
 
 
         <!-- Gallery Section -->
@@ -673,29 +746,7 @@
                 </div>
             </div>
         </section>
-<section class="gallery-main">
-    <div class="gallery-grid">
-        <div class="gallery-item" onclick="showDetail(1)" style="background-image: url('images/peared-cover.jpg');">
-            <span>Peared</span>
-        </div>
-        <div class="gallery-item" onclick="showDetail(2)" style="background-image: url('images/research-cover.jpg');">
-            <span>Research</span>
-        </div>
-        <div class="gallery-item" onclick="showDetail(3)" style="background-image: url('images/award-cover.jpg');">
-            <span>Award Ceremony</span>
-        </div>
-        <div class="gallery-item" onclick="showDetail(4)" style="background-image: url('images/team-cover.jpg');">
-            <span>Team Collaboration</span>
-        </div>
-        <div class="gallery-item" onclick="showDetail(5)" style="background-image: url('images/field-cover.jpg');">
-            <span>Field Work</span>
-        </div>
-        <div class="gallery-item" onclick="showDetail(6)" style="background-image: url('images/speaking-cover.jpg');">
-            <span>Speaking Engagement</span>
-        </div>
-    </div>
-</section>
-  
+
         <!-- Recognition Section -->
         <section class="recognition">
         <style>
@@ -747,31 +798,7 @@
             .recognition .logos-grid .logo-item { min-width: 120px; }
         }
         </style>
-                <h2>Recognized By:</h2>
-                <div class="logos-grid">
-                    <div class="logo-item">
-                        <img src="images/download.jpg" alt="Major University logo" loading="lazy" style="max-width:100%; max-height:100%; display:block;">
-                    </div>
-                    <div class="logo-item">Science Foundation</div>
-                    <div class="logo-item">Innovation Award</div>
-                    <div class="logo-item">Research Institute</div>
-                    <div class="logo-item">Scholarship Program</div>
-                    <div class="logo-item">STEM Competition</div>
-                    <div class="logo-item">Environmental Org</div>
-                    <div class="logo-item">Tech Foundation</div>
-                    <div class="logo-item">Merit Program</div>
-                    <div class="logo-item">Honor Society</div>
-                    <div class="logo-item">Leadership Award</div>
-                    <div class="logo-item">Academic Society</div>
-                    <div class="logo-item">Innovation Lab</div>
-                    <div class="logo-item">Global Initiative</div>
-                    <div class="logo-item">Youth Program</div>
-                    <div class="logo-item">Research Center</div>
-                    <div class="logo-item">Fellowship</div>
-                    <div class="logo-item">Achievement Award</div>
-
-            </div>
-        </section>
+        
 
         <!-- Footer -->
         <footer>
@@ -785,151 +812,9 @@
     </div>
 
     <!-- Detail Page -->
-    <div id="detail" class="page">
-        <section class="detail-header">
-            <div class="container">
-                <a class="back-button" onclick="showHome()">Back to Home</a>
-                <div class="detail-content">
-                    <div>
-                        <h1 class="detail-title" id="detailTitle">Project Title</h1>
-                    </div>
-                    <div>
-                        <div class="detail-description" id="detailDescription">
-                            <p>This is a detailed description of the project. Here you can explain the background, methodology, results, and impact of your work.</p>
-                            <p>Add multiple paragraphs to provide comprehensive information about what you accomplished, the challenges you faced, and the solutions you developed.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="detail-gallery">
-            <div class="container">
-                <div class="detail-gallery-grid" id="detailGallery">
-                    <div class="detail-gallery-item">Image 1</div>
-                    <div class="detail-gallery-item">Image 2</div>
-                    <div class="detail-gallery-item">Image 3</div>
-                    <div class="detail-gallery-item">Image 4</div>
-                    <div class="detail-gallery-item">Image 5</div>
-                    <div class="detail-gallery-item">Image 6</div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="container">
-                <a href="#">Email</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-                <a href="#">GitHub</a>
-            </div>
-        </footer>
-    </div>
 
 <script>
-        const projects = {
-            1: {
-    title: "Peared",
-    description: `
-        <p>After noticing many underutilized volunteering opportunities from student organizations, I created Peared.</p>
-        <p>Peared is a platform designed to empower both student organizations and volunteers, encouraging thoughtful and personalized community service.</p>
-        <p>It provides a centralized hub for volunteer sign-ups, consolidating a wide range of opportunities in one place.</p>
-        <p>Organizations can use Peared to showcase upcoming events, request volunteers, and share their <a href="https://pearedco.org/orgs/explore.html">missions through our forum</a>.</p>
-        <p>To empower small student-run organizations to create a larger impact, we provide: promotion of the org on our social media, <a href="https://drive.google.com/file/d/1EBO7OSAh6HyV8TKZo7zdasuC6uIBbBL8/view?usp=sharing">creation of promotional materials</a>, microgrants to cover material costs, and event logistic assistance.</p>
-        <p>Peared's work in encouraging civic engagement has been featured on <a href="https://www.houstonpublicmedia.org/articles/shows/hello-houston/2025/06/24/524804/hello-houston-june-24-2025/">NPR</a>, <a href="https://www.linkedin.com/pulse/civics-unplugged-fellow-builds-platform-streamline-volunteer-ejkme?trk=public_post_feed-article-content">Civics Unplugged</a>, and <a href="https://boldjourney.com/meet-sophia-ni-anushka-polapally-gaathri-chakka/">Bold Journey Magazine</a>.</p>
-    `,
-    images: [
-        "images/peared-1.jpg",
-        "images/peared-2.jpg",
-        "images/peared-3.jpg",
-        "images/peared-4.jpg",
-        "images/peared-5.jpg",
-        "images/peared-6.jpg",
-        "images/peared-7.jpg"
-    ]
-    }
-,
-    2: {
-        title: "Research",
-        description: `
-        <p>Currently, I am working on developing an optimal iterative refinement pipeline for open source LLMs with the mentorship of members from the NYU Agentic AI Lab. This project was started in the NYU GSTEM program. Through this project, I hope to democratize access to high quality LLMs and data transparency while using LLMs.</p>
-        <p>Previously, I worked on creating a methodology for similarity matching which was inspired by ArCADia, a project I proposed during the Conrad Challenge. This project was done under the mentorship of a professor at Texas A&M.</p>
-        <p>I worked on investigating how ML can solve inverse problems for image classification. This work was done under Andreas Mang and I reported my findings in a final report.</p>
-        <p>For my demonstrated aptitude in programming and data-science, I was awarded a the $6000 Winston Data Scholar Award from the Winston Data Foundation.</p>
-        <p>I was awarded a $300 prize for the Best Automation Project at SEFH from the International Society of Automation.</p>
-        <p></p>
-        
-    `,
-        images: [
-            "images/research-1.jpg",
-            "images/research-2.jpg",
-            "images/research-3.jpg",
-            "images/research-4.jpg",
-            "images/research-5.jpg",
-            "images/research-6.jpg"
-        ]
-    },
-            3: {
-                title: "Business Competitions",
-                description: "<p>Recognition at this prestigious award ceremony highlighted the impact and significance of my work in the scientific community.</p><p>The honor reflects dedication to excellence and innovation in research and development.</p>",
-                images: [
-                    "images/award-1.jpg",
-                    "images/award-2.jpg",
-                    "images/award-3.jpg",
-                    "images/award-4.jpg",
-                    "images/award-5.jpg",
-                    "images/award-6.jpg"
-                ]
-            },
-            4: {
-                title: "Team Collaboration",
-                description: "<p>Working with a diverse team of talented individuals, we tackled complex challenges and developed solutions that exceeded our initial goals.</p><p>This collaborative effort demonstrated the power of interdisciplinary approaches to problem-solving.</p>",
-                images: [
-                    "images/team-1.jpg",
-                    "images/team-2.jpg",
-                    "images/team-3.jpg",
-                    "images/team-4.jpg",
-                    "images/team-5.jpg",
-                    "images/team-6.jpg"
-                ]
-            },
-            5: {
-                title: "Field Work",
-                description: "<p>Field research provided crucial real-world data and insights that informed our theoretical models and practical applications.</p><p>This hands-on experience was essential for understanding the practical implications of our work.</p>",
-                images: [
-                    "images/field-1.jpg",
-                    "images/field-2.jpg",
-                    "images/field-3.jpg",
-                    "images/field-4.jpg",
-                    "images/field-5.jpg",
-                    "images/field-6.jpg"
-                ]
-            },
-            6: {
-                title: "Speaking Engagement",
-                description: "<p>Sharing research findings and insights with broader audiences helps bridge the gap between academic work and public understanding.</p><p>These speaking opportunities allow for meaningful dialogue and knowledge exchange.</p>",
-                images: [
-                    "images/speaking-1.jpg",
-                    "images/speaking-2.jpg",
-                    "images/speaking-3.jpg",
-                    "images/speaking-4.jpg",
-                    "images/speaking-5.jpg",
-                    "images/speaking-6.jpg"
-                ]
-            },
-            7: {
-                title: "Community Service",
-                description: "<p>Giving back to the community through service initiatives has been a core part of my mission to make a positive impact.</p><p>These efforts focus on making STEM education and resources more accessible to underserved populations.</p>",
-                images: [
-                    "images/community-1.jpg",
-                    "images/community-2.jpg",
-                    "images/community-3.jpg",
-                    "images/community-4.jpg",
-                    "images/community-5.jpg",
-                    "images/community-6.jpg"
-                ]
-            }
-        };
+
         // Slideshow functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');

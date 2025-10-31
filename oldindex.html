@@ -698,30 +698,56 @@
   
         <!-- Recognition Section -->
         <section class="recognition">
-            <div class="container">
-                <h2>Recognized By:</h2>
-                <div class="logos-grid">
-                    <div class="logo-item">Major University</div>
-                    <div class="logo-item">Science Foundation</div>
-                    <div class="logo-item">Innovation Award</div>
-                    <div class="logo-item">Research Institute</div>
-                    <div class="logo-item">Scholarship Program</div>
-                    <div class="logo-item">STEM Competition</div>
-                    <div class="logo-item">Environmental Org</div>
-                    <div class="logo-item">Tech Foundation</div>
-                    <div class="logo-item">Merit Program</div>
-                    <div class="logo-item">Honor Society</div>
-                    <div class="logo-item">Leadership Award</div>
-                    <div class="logo-item">Academic Society</div>
-                    <div class="logo-item">Innovation Lab</div>
-                    <div class="logo-item">Global Initiative</div>
-                    <div class="logo-item">Youth Program</div>
-                    <div class="logo-item">Research Center</div>
-                    <div class="logo-item">Fellowship</div>
-                    <div class="logo-item">Achievement Award</div>
-                </div>
-            </div>
-        </section>
+        <style>
+        /* Make logos flow horizontally, start from the right, and avoid being clipped by the section padding */
+        .recognition { overflow: visible; }
+
+        /* Convert the existing grid into a scrollable horizontal row (affects the .logos-grid that appears below) */
+        .recognition .logos-grid {
+            display: flex;
+
+            align-items: center;
+            gap: 12px;
+            overflow-x: auto;
+            overflow-y: visible;
+            -webkit-overflow-scrolling: touch;
+            padding: 12px 20px;
+            scroll-snap-type: x proximity;
+            /* allow the row to visually extend beyond the normal container padding so items don't get cut off */
+            margin-left: calc(-1 * 40px);
+            margin-right: calc(-1 * 40px);
+            width: calc(100% + 80px);
+            box-sizing: border-box;
+        }
+
+        /* Ensure each logo keeps its intrinsic aspect and doesn't shrink */
+        .recognition .logos-grid .logo-item {
+            flex: 0 0 auto;
+            min-width: 140px;
+            max-width: 220px;
+            scroll-snap-align: center;
+        }
+
+        /* Make images responsive inside logo items */
+        .recognition .logos-grid .logo-item img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* Small device adjustments */
+        @media (max-width: 768px) {
+            .recognition .logos-grid {
+                gap: 16px;
+                margin-left: calc(-1 * 20px);
+                margin-right: calc(-1 * 20px);
+                width: calc(100% + 40px);
+            }
+            .recognition .logos-grid .logo-item { min-width: 120px; }
+        }
+        </style>
+        
 
         <!-- Footer -->
         <footer>
@@ -800,7 +826,7 @@
     }
 ,
     2: {
-        title: "Research Lab",
+        title: "Research",
         description: `
         <p>Currently, I am working on developing an optimal iterative refinement pipeline for open source LLMs with the mentorship of members from the NYU Agentic AI Lab. This project was started in the NYU GSTEM program. Through this project, I hope to democratize access to high quality LLMs and data transparency while using LLMs.</p>
         <p>Previously, I worked on creating a methodology for similarity matching which was inspired by ArCADia, a project I proposed during the Conrad Challenge. This project was done under the mentorship of a professor at Texas A&M.</p>
